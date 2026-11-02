@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string [] products = { "Water", "Orange Juice", "Coffee", "Sandwich", "Chocolate" };
+}
+@section Scripts {
+    <script>
+        alert("Welcome to the Products Page!");
+    </script>
+}
+
+@if(products.Length == 0)
+{
+    <h2> no Available Products:</h2>
+}
+else if ( products.Length > 3)
+{
+    <h2>We have enough Products.</h2>
+}
+else{
+    <h2>We need more Products.</h2>
+}
+
+}
+
+@foreach (var product in products)
+{
+    <ul>
+        <li>@product</li>
+    </ul>
+}

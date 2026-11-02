@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+
+    string[] suppliers = { "Fresh Food Company", "Happy Drinks Company", "Daily Supplies Company" };
+}
+
+@if (suppliers.Length == 0)
+{
+    <h2>No Available Suppliers.</h2>
+}
+else if (suppliers.Length >= 3)
+{
+    <h2>We have enough Suppliers.</h2>
+}
+else
+{
+    <h2>We need more Suppliers.</h2>
+}
+
+<a asp-ac
