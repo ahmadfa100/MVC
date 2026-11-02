@@ -95,3 +95,4 @@
 /Users/ahmadbanihamad/Companies/orange/Tasks/MVC/UniversityCafeteria/obj/Debug/net10.0/UniversityCafeteria.pdb
 /Users/ahmadbanihamad/Companies/orange/Tasks/MVC/UniversityCafeteria/obj/Debug/net10.0/UniversityCafeteria.genruntimeconfig.cache
 /Users/ahmadbanihamad/Companies/orange/Tasks/MVC/UniversityCafeteria/obj/Debug/net10.0/ref/UniversityCafeteria.dll
+/Users/ahmadbanihamad/Companies/orange/Tasks/MVC/UniversityCafeteria/obj/Debug/net10.0/UniversityCafeteria.sourcelink.json
