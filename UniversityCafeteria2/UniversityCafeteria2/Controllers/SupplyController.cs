@@ -80,5 +80,13 @@ namespace Day3.Controllers
             return View();
         }
 
+        public IActionResult CheckQuantity(int quantity)
+        {
+            if (quantity < 20) return Content("Small Order");
+            else if (quantity >= 20 && quantity <= 50) return Content("Medium Order");
+            else if (quantity > 50) return Content("Large Order");
+            return Content("Well done.");
+        }
+
     }
 }
