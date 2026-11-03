@@ -11,6 +11,7 @@
 <body>
     <header class="bg-dark text-white p-3">
         <h2>University Cafeteria</h2>
+            @RenderSection("Scripts", required: false)
 
         <nav>
             <a asp-controller="Cafeteria" asp-action="Index" class="text-white me-3">Home</a>
@@ -31,6 +32,5 @@
         <p>University Cafeteria Management System</p>
     </footer>
 
-    @RenderSection("Scripts", required: false)
 </body>
 </html>
