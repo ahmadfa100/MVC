@@ -3,37 +3,3 @@
 *@
 @{
 }
-<div class="container mt-5">
-
-    <div class="card shadow-sm">
-
-        <div class="card-body text-center">
-
-            <h2 class="mb-4">
-                Supply Request Result
-            </h2>
-
-            @if (ViewBag.Error != null)
-            {
-                <div class="alert alert-danger">
-                    @ViewBag.Error
-                </div>
-            }
-            else
-            {
-                <div class="alert alert-info">
-                    No request result to display.
-                </div>
-            }
-
-            <a asp-controller="Supply"
-               asp-action="CreateRequest"
-               class="btn btn-primary">
-                Back to Request Form
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
