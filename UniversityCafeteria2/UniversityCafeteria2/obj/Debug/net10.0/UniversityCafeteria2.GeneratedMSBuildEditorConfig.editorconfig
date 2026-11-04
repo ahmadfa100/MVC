@@ -63,6 +63,38 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/SupplyRequest/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5UmVxdWVzdFxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/SupplyRequest/AddItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5UmVxdWVzdFxBZGRJdGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/SupplyRequest/ClearDraft.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5UmVxdWVzdFxDbGVhckRyYWZ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/SupplyRequest/ConfirmRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5UmVxdWVzdFxDb25maXJtUmVxdWVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/SupplyRequest/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5UmVxdWVzdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/SupplyRequest/MyRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5UmVxdWVzdFxNeVJlcXVlc3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/SupplyRequest/Review.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5UmVxdWVzdFxSZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/SupplyRequest/SavePreference.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5UmVxdWVzdFxTYXZlUHJlZmVyZW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/Supply/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5XEFib3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -93,6 +125,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Downloads/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = SW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/Orange/week9-mvc/Tasks/MVC/UniversityCafeteria2/UniversityCafeteria2/Views/Shared/_Layout.cshtml]

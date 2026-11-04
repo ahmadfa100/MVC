@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewData["Title"] = "Create Supply Request";
+}
+<div class="container mt-4">
+
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    <!-- Form 1: Add Product -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+
+            <h4 class="mb-3">Add Product</h4>
+
+            <form asp-controller="SupplyRequest"
+                  asp-action="AddItem"
+                  method="post">
+
+                <div class="mb-3">
+                    <label for="lb1" class="form-label">Product Name</label>
+                    <input type="text" id="lb1" name="productName"
+                           class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="lb2" class="form-label">Category</label>
+                    <select id="lb2" name="category"
+                            class="form-select" required>
+                        <option value="">Select a category</option>
+                        <option value="Food">Food</option>
+                        <option value="Beverages">Beverages</option>
+                        <option value="Supplies">Supplies</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="lb3" class="form-label">Quantity</label>
+                    <input type="number" id="lb3" name="quantity"
+                           min="1" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="lb4" class="form-label">Unit Price (JD)</label>
+                    <input type="number" id="lb4" name="unitPrice"
+                           min="0.01" step="0.01"
+                           class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="lb5" class="form-label">Priority</label>
+
+                    <select id="lb5" name="priority"
+                            class="form-select" required>
+
+                        <option value="Normal"
+                                selected="@(ViewBag.Priority == "Normal")">
+                            Normal
+                        </option>
+
+                        <option value="Urgent"
+                                selected="@(ViewBag.Priority == "Urgent")">
+                            Urgent
+                        </option>
+
+                        <option value="Emergency"
+                                selected="@(ViewBag.Priority == "Emergency")">
+                            Emergency
+                        </option>
+
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Add Product
+                </button>
+
+                <a href="@Url.Action("Review", "SupplyRequest")"
+                   class="btn btn-outline-secondary">
+                    Review Draft
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Form 2: Save Preferred Priority -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+
+            <h4 class="mb-3">Save Preferred Priority</h4>
+
+            <form asp-controller="SupplyRequest"
+                  asp-action="SavePreference"
+                  method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Preferred Priority</label>
+
+                    <select name="priority" class="form-select">
+
+                        <option value="Normal"
+                                selected="@(ViewBag.Priority == "Normal")">
+                            Normal
+                        </option>
+
+                        <option value="Urgent"
+                                selected="@(ViewBag.Priority == "Urgent")">
+                            Urgent
+                        </option>
+
+                        <option value="Emergency"
+                                selected="@(ViewBag.Priority == "Emergency")">
+                            Emergency
+                        </option>
+
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    Save Preference
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
