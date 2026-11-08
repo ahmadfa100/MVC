@@ -1,0 +1,16 @@
+﻿
+@model List<Supplier>
+
+<h2>Suppliers</h2>
+
+<a href="/Supplier/Create" class="btn btn-primary mb-3">Add Supplier</a>
+
+@foreach (var supplier in Model)
+{
+    <div class="card p-3 mb-3">
+        <p>ID: @supplier.Id</p>
+        <p>Name: @supplier.Name</p>
+        <p>Phone: @supplier.Phone</p>
+        <p>Email: @supplier.Email</p>
+    </div>
+}

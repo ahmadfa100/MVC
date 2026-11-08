@@ -1,0 +1,18 @@
+﻿
+@model List<Product>
+
+<h2>Products</h2>
+
+<a href="/Product/Create" class="btn btn-primary mb-3">Add Product</a>
+
+@foreach (var product in Model)
+{
+    <div class="card p-3 mb-3">
+        <p>ID: @product.Id</p>
+        <p>Name: @product.Name</p>
+        <p>Price: @product.Price</p>
+        <p>Quantity: @product.Quantity</p>
+        <p>Category ID: @product.CategoryId</p>
+        <p>Supplier ID: @product.SupplierId</p>
+    </div>
+}
