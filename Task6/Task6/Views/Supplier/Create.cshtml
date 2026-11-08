@@ -1,17 +1,15 @@
-﻿
-<h2>Add Supplier</h2>
+﻿@model Supplier
 
-<form asp-action="Create" asp-controller="Supplier" method="post">
+@using (Html.BeginForm("Create", "Supplier", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
 
-    <label>Name</label>
-    <input name="Name" class="form-control mb-3" />
+    @Html.LabelFor(m => m.Phone)
+    @Html.TextBoxFor(m => m.Phone)
 
-    <label>Phone</label>
-    <input name="Phone" class="form-control mb-3" />
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
 
-    <label>Email</label>
-    <input name="Email" class="form-control mb-3" />
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-
-</form>
+    <button type="submit">Submit</button>
+}

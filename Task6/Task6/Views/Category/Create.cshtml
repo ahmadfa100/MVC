@@ -1,17 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<form asp-action="Create" asp-controller="Category" method="post">
+﻿
+@model Category
 
+@using (Html.BeginForm("Create", "Category", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
 
-    
-    <label> Name</label>
-    <input  id="name1" name="Name"/>
-
-    <label> Description</label>
-    <input id="desc" name="Description" />
+    @Html.LabelFor(m => m.Description)
+    @Html.TextBoxFor(m => m.Description)
 
     <button type="submit">Submit</button>
-</form>
+}
