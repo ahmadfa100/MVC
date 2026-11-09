@@ -1,0 +1,29 @@
+﻿
+@model Category
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Add New Category</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form action="/Category/Create" method="post">
+
+                <label class="form-label">Name</label>
+                <input name="Name" class="form-control mb-3" required />
+
+                <label class="form-label">Description</label>
+                <textarea name="Description" class="form-control mb-3" rows="3" required></textarea>
+
+                <button type="submit" class="btn btn-success">Save Category</button>
+                <a href="/Category/Index" class="btn btn-secondary">Cancel</a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

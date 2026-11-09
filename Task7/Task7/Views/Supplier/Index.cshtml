@@ -1,0 +1,47 @@
+@model List<Supplier>
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Suppliers</h2>
+        <a href="/Supplier/Create" class="btn btn-primary">+ Add Supplier</a>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Products Count</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var supplier in Model)
+            {
+                <tr>
+                    <td>@supplier.Id</td>
+                    <td>@supplier.Name</td>
+                    <td>@supplier.Phone</td>
+                    <td>@supplier.Email</td>
+                    <td>@supplier.Address</td>
+                    <td>@supplier.Products.Count</td>
+                    <td>
+                        <a href="/Supplier/Edit/@supplier.Id" class="btn btn-warning btn-sm">Edit</a>
+
+                        <a href="/Supplier/Details/@supplier.Id" class="btn btn-info btn-sm">Details</a>
+
+                        <form action="/Supplier/Delete/@supplier.Id" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

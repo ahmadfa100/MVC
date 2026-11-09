@@ -1,0 +1,43 @@
+@model Order
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Add New Order</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form action="/Order/Create" method="post">
+
+                <label class="form-label">Customer Name</label>
+                <input type="text" name="CustomerName" class="form-control mb-3" required />
+
+                <label class="form-label">Order Date</label>
+                <input type="date" name="OrderDate" class="form-control mb-3" required />
+
+                <label class="form-label">Total Price</label>
+                <input type="number" name="TotalPrice" min="0" step="0.01" class="form-control mb-3" required />
+
+                <label class="form-label">Status</label>
+                <input type="text" name="Status" class="form-control mb-3" required />
+
+                <label class="form-label">Employee</label>
+                <select name="EmployeeId" class="form-control mb-3" required>
+                    <option value="">Select Employee</option>
+                    @foreach (Employee employee in ViewBag.Employees)
+                    {
+                        <option value="@employee.Id">@employee.FullName</option>
+                    }
+                </select>
+
+                <button type="submit" class="btn btn-success">Save Order</button>
+                <a href="/Order/Index" class="btn btn-secondary">Cancel</a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

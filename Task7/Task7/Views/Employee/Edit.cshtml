@@ -1,0 +1,42 @@
+@model Employee
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning">
+            <h4 class="mb-0">Edit Employee</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form action="/Employee/Edit/@Model.Id" method="post">
+
+                <input type="hidden" name="Id" value="@Model.Id" />
+
+                <label class="form-label">Full Name</label>
+                <input type="text" name="FullName" value="@Model.FullName" class="form-control mb-3" required />
+
+                <label class="form-label">Phone</label>
+                <input type="tel" name="Phone" value="@Model.Phone" class="form-control mb-3" required />
+
+                <label class="form-label">Email</label>
+                <input type="email" name="Email" value="@Model.Email" class="form-control mb-3" required />
+
+                <label class="form-label">Position</label>
+                <input type="text" name="Position" value="@Model.Position" class="form-control mb-3" required />
+
+                <label class="form-label">Salary</label>
+                <input type="number" name="Salary" value="@Model.Salary" min="0" step="0.01" class="form-control mb-3" required />
+
+                <label class="form-label">Hire Date</label>
+                <input type="date" name="HireDate" value="@Model.HireDate.ToString("yyyy-MM-dd")" class="form-control mb-3" required />
+
+                <button type="submit" class="btn btn-warning">Update Employee</button>
+                <a href="/Employee/Index" class="btn btn-secondary">Cancel</a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

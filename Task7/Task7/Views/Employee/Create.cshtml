@@ -1,0 +1,40 @@
+@model Employee
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Add New Employee</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form action="/Employee/Create" method="post">
+
+                <label class="form-label">Full Name</label>
+                <input type="text" name="FullName" class="form-control mb-3" required />
+
+                <label class="form-label">Phone</label>
+                <input type="tel" name="Phone" class="form-control mb-3" required />
+
+                <label class="form-label">Email</label>
+                <input type="email" name="Email" class="form-control mb-3" required />
+
+                <label class="form-label">Position</label>
+                <input type="text" name="Position" class="form-control mb-3" required />
+
+                <label class="form-label">Salary</label>
+                <input type="number" name="Salary" min="0" step="0.01" class="form-control mb-3" required />
+
+                <label class="form-label">Hire Date</label>
+                <input type="date" name="HireDate" class="form-control mb-3" required />
+
+                <button type="submit" class="btn btn-success">Save Employee</button>
+                <a href="/Employee/Index" class="btn btn-secondary">Cancel</a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
