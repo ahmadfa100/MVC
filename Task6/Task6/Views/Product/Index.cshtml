@@ -1,18 +1,54 @@
-﻿
-@model List<Product>
+﻿@model List<Product>
 
 <h2>Products</h2>
 
-<a href="/Product/Create" class="btn btn-primary mb-3">Add Product</a>
+<a href="/Product/Create" class="btn btn-primary mb-3">
+    Add Product
+</a>
 
-@foreach (var product in Model)
-{
-    <div class="card p-3 mb-3">
-        <p>ID: @product.Id</p>
-        <p>Name: @product.Name</p>
-        <p>Price: @product.Price</p>
-        <p>Quantity: @product.Quantity</p>
-        <p>Category ID: @product.CategoryId</p>
-        <p>Supplier ID: @product.SupplierId</p>
-    </div>
-}
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Quantity</td>
+
+                <td>
+                    <a href="/Product/Edit/@product.Id"
+                       class="btn btn-warning">
+                        Edit
+                    </a>
+
+                    <a href="/Product/Details/@product.Id"
+                       class="btn btn-info">
+                        Details
+                    </a>
+
+                    <form method="post"
+                          action="/Product/Delete/@product.Id"
+                          style="display:inline"
+                          onsubmit="return confirm('Are you sure?');">
+
+                        <button type="submit" class="btn btn-danger">
+                            Delete
+                        </button>
+
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

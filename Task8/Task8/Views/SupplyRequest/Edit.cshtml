@@ -1,0 +1,30 @@
+@model SupplyRequest
+@{
+    ViewData["Title"] = "Review Request";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+                <h1 class="h4 mb-0">Review Request #@Model.Id</h1>
+            </div>
+            <div class="card-body p-4">
+                <p class="mb-1"><strong>Requested:</strong> @Model.RequestDate.ToString("dd MMM yyyy")</p>
+                <p class="mb-4"><strong>Total:</strong> @Model.TotalPrice.ToString("0.00")</p>
+
+                <form action="/SupplyRequest/Edit/@Model.Id" method="post">
+                    @Html.AntiForgeryToken()
+                    <label for="status" class="form-label">Status</label>
+                    <select id="status" name="status" class="form-select mb-4" required>
+                        <option value="Pending" selected="@(Model.Status == StatusValues.Pending)">Pending</option>
+                        <option value="Approved" selected="@(Model.Status == StatusValues.Approved)">Approved</option>
+                        <option value="Rejected" selected="@(Model.Status == StatusValues.Rejected)">Rejected</option>
+                    </select>
+                    <button type="submit" class="btn btn-success">Save Status</button>
+                    <a href="/SupplyRequest/Index" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

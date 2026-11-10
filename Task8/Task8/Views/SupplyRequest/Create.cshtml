@@ -1,0 +1,58 @@
+@model List<Product>
+@{
+    ViewData["Title"] = "New Supply Request";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+    <div>
+        <h1 class="h2 mb-1">New Supply Request</h1>
+        <p class="text-muted mb-0">Enter a quantity for each product you need. Leave the others at zero.</p>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+        @if (Model.Count == 0)
+        {
+            <p class="text-muted mb-3">No products are available yet.</p>
+            <a href="/Product/Index" class="btn btn-secondary">View Products</a>
+        }
+        else
+        {
+            <form action="/SupplyRequest/Create" method="post">
+                @Html.AntiForgeryToken()
+                <div class="table-responsive mb-4">
+                    <table class="table table-bordered align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Product</th>
+                                <th>Available</th>
+                                <th>Price</th>
+                                <th style="width: 180px;">Quantity needed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        <span class="fw-semibold">@Model[i].Name</span>
+                                        <div class="small text-muted">@Model[i].Description</div>
+                                        <input type="hidden" name="items[@i].productId" value="@Model[i].Id" />
+                                    </td>
+                                    <td>@Model[i].Quantity.ToString("0.##")</td>
+                                    <td>@Model[i].Price.ToString("0.00")</td>
+                                    <td>
+                                        <input type="number" name="items[@i].Quantity" value="0" min="0" step="0.01" class="form-control" aria-label="Quantity needed for @Model[i].Name" />
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <button type="submit" class="btn btn-success">Submit Request</button>
+                <a href="/SupplyRequest/Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        }
+    </div>
+</div>

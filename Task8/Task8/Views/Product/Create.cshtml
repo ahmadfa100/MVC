@@ -1,0 +1,33 @@
+@model Product
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+                <h1 class="h4 mb-0">Add New Product</h1>
+            </div>
+            <div class="card-body p-4">
+                <form action="/Product/Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <label for="Name" class="form-label">Name</label>
+                    <input id="Name" type="text" name="Name" class="form-control mb-3" required />
+
+                    <label for="Description" class="form-label">Description</label>
+                    <textarea id="Description" name="Description" class="form-control mb-3" rows="3" required></textarea>
+
+                    <label for="Price" class="form-label">Price</label>
+                    <input id="Price" type="number" name="Price" min="0" step="0.01" class="form-control mb-3" required />
+
+                    <label for="Quantity" class="form-label">Quantity</label>
+                    <input id="Quantity" type="number" name="Quantity" min="0" step="0.01" class="form-control mb-4" required />
+
+                    <button type="submit" class="btn btn-success">Save Product</button>
+                    <a href="/Product/Index" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

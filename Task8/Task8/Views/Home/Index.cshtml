@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero rounded-4 p-4 p-md-5 mb-5">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+            <span class="badge bg-white text-primary mb-3">University Cafeteria</span>
+            <h1 class="display-5 fw-bold mb-3">Supplies, made simple.</h1>
+            <p class="lead mb-4">Find available products, submit a supply request, and follow its status in one place.</p>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="/Product/Index" class="btn btn-light btn-lg">Browse Products</a>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <a href="/SupplyRequest/Create" class="btn btn-outline-light btn-lg">New Request</a>
+                }
+                else
+                {
+                    <a href="/Account/Login" class="btn btn-outline-light btn-lg">Log In to Request</a>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <div class="feature-number mb-3">01</div>
+                <h2 class="h5">Browse Products</h2>
+                <p class="text-muted mb-0">Check product details, prices, and available quantities.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <div class="feature-number mb-3">02</div>
+                <h2 class="h5">Request Supplies</h2>
+                <p class="text-muted mb-0">Choose the quantities your cafeteria team needs.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <div class="feature-number mb-3">03</div>
+                <h2 class="h5">Track Progress</h2>
+                <p class="text-muted mb-0">See whether each request is pending, approved, or rejected.</p>
+            </div>
+        </div>
+    </div>
+</div>

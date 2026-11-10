@@ -1,0 +1,53 @@
+﻿@model Product
+
+<div class="container mt-4">
+
+    <h2>Edit Product</h2>
+
+    <form method="post" action="/Product/Edit">
+
+
+        <div class="mb-3">
+            <label>Id</label>
+            <input
+                   name="Id"
+                   value="@Model.Id"
+                   class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text"
+                   name="Name"
+                   value="@Model.Name"
+                   class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Price</label>
+            <input type="number"
+                   name="Price"
+                   value="@Model.Price"
+                   step="0.01"
+                   class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Quantity</label>
+            <input type="number"
+                   name="Quantity"
+                   value="@Model.Quantity"
+                   class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Save Changes
+        </button>
+
+        <a href="/Product/Index" class="btn btn-secondary">
+            Cancel
+        </a>
+
+    </form>
+
+</div>

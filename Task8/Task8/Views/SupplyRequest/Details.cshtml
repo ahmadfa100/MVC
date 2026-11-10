@@ -1,0 +1,59 @@
+@model SupplyRequest
+@{
+    ViewData["Title"] = "Request Details";
+    bool canManage = User.IsInRole("Admin") || User.IsInRole("SuperAdmin");
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-9">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+                <h1 class="h4 mb-0">Supply Request #@Model.Id</h1>
+            </div>
+            <div class="card-body p-4">
+                <dl class="row mb-4">
+                    <dt class="col-sm-4">Date</dt>
+                    <dd class="col-sm-8">@Model.RequestDate.ToString("dd MMM yyyy")</dd>
+                    <dt class="col-sm-4">Status</dt>
+                    <dd class="col-sm-8">@Model.Status</dd>
+                    @if (canManage)
+                    {
+                        <dt class="col-sm-4">Requested by</dt>
+                        <dd class="col-sm-8">@Model.User?.FullName</dd>
+                    }
+                </dl>
+
+                <h2 class="h5 mb-3">Requested Products</h2>
+                <div class="table-responsive mb-3">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (RequestItem item in Model.Items)
+                            {
+                                <tr>
+                                    <td>@item.product?.Name</td>
+                                    <td>@item.Quantity.ToString("0.##")</td>
+                                    <td>@item.Price.ToString("0.00")</td>
+                                    <td>@((item.Price * item.Quantity).ToString("0.00"))</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-end fw-bold fs-5">Total: @Model.TotalPrice.ToString("0.00")</p>
+                <a href="/SupplyRequest/Index" class="btn btn-secondary">Back to Requests</a>
+                @if (canManage)
+                {
+                    <a href="/SupplyRequest/Edit/@Model.Id" class="btn btn-primary">Review Status</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

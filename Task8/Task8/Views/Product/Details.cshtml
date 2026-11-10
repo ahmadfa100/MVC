@@ -1,0 +1,30 @@
+@model Product
+@{
+    ViewData["Title"] = "Product Details";
+    bool canManage = User.IsInRole("Admin") || User.IsInRole("SuperAdmin");
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+                <h1 class="h4 mb-0">Product Details</h1>
+            </div>
+            <div class="card-body p-4">
+                <h2 class="h4 mb-3">@Model.Name</h2>
+                <p class="text-muted">@Model.Description</p>
+                <dl class="row mb-4">
+                    <dt class="col-sm-4">Price</dt>
+                    <dd class="col-sm-8">@Model.Price.ToString("0.00")</dd>
+                    <dt class="col-sm-4">Available quantity</dt>
+                    <dd class="col-sm-8">@Model.Quantity.ToString("0.##")</dd>
+                </dl>
+                <a href="/Product/Index" class="btn btn-secondary">Back to Products</a>
+                @if (canManage)
+                {
+                    <a href="/Product/Edit/@Model.Id" class="btn btn-primary">Edit Product</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

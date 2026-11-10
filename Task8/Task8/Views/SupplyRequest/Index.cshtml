@@ -1,0 +1,76 @@
+@model List<SupplyRequest>
+@{
+    ViewData["Title"] = "Supply Requests";
+    bool canManage = User.IsInRole("Admin") || User.IsInRole("SuperAdmin");
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+    <div>
+        <h1 class="h2 mb-1">@(canManage ? "All Supply Requests" : "My Supply Requests")</h1>
+        <p class="text-muted mb-0">Track requests and their approval status.</p>
+    </div>
+    <a href="/SupplyRequest/Create" class="btn btn-primary">+ New Request</a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        @if (Model.Count == 0)
+        {
+            <div class="text-center py-5">
+                <h2 class="h5">No requests yet</h2>
+                <p class="text-muted mb-0">Create a request to get started.</p>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Request</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (SupplyRequest request in Model)
+                        {
+                            <tr>
+                                <td class="fw-semibold">#@request.Id</td>
+                                <td>@request.RequestDate.ToString("dd MMM yyyy")</td>
+                                <td>@request.TotalPrice.ToString("0.00")</td>
+                                <td>
+                                    @if (request.Status == StatusValues.Approved)
+                                    {
+                                        <span class="badge bg-success">Approved</span>
+                                    }
+                                    else if (request.Status == StatusValues.Rejected)
+                                    {
+                                        <span class="badge bg-danger">Rejected</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-warning text-dark">Pending</span>
+                                    }
+                                </td>
+                                <td class="text-end text-nowrap">
+                                    <a href="/SupplyRequest/Details/@request.Id" class="btn btn-outline-primary btn-sm">Details</a>
+                                    @if (canManage)
+                                    {
+                                        <a href="/SupplyRequest/Edit/@request.Id" class="btn btn-outline-secondary btn-sm">Review</a>
+                                        <form action="/SupplyRequest/Delete/@request.Id" method="post" class="d-inline">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this request?')">Delete</button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

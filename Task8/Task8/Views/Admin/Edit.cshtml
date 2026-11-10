@@ -1,0 +1,31 @@
+@model UserFromIdentity
+@{
+    ViewData["Title"] = "Change User Role";
+    string currentRole = ViewBag.CurrentRole as string ?? "User";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+                <h1 class="h4 mb-0">Change User Role</h1>
+            </div>
+            <div class="card-body p-4">
+                <p class="mb-1"><strong>Name:</strong> @Model.FullName</p>
+                <p class="mb-4"><strong>Email:</strong> @Model.Email</p>
+
+                <form action="/Admin/Edit/@Model.Id" method="post">
+                    @Html.AntiForgeryToken()
+                    <label for="roleName" class="form-label">Role</label>
+                    <select id="roleName" name="roleName" class="form-select mb-4" required>
+                        <option value="User" selected="@(currentRole == "User")">User</option>
+                        <option value="Admin" selected="@(currentRole == "Admin")">Admin</option>
+                        <option value="SuperAdmin" selected="@(currentRole == "SuperAdmin")">SuperAdmin</option>
+                    </select>
+                    <button type="submit" class="btn btn-success">Save Role</button>
+                    <a href="/Admin/Index" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
